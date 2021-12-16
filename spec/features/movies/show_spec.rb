@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Movie show page' do
   before(:each) do
-    @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com')
+    @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com', password: 'Abc123', password_confirmation: 'Abc123')
     @movie = MoviesFacade.movie_by_id(278)
     @movie_cast = MoviesFacade.movie_cast(278)
     @movie_reviews = MoviesFacade.movie_reviews(278)

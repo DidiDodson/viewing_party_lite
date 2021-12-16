@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Top rated movies page' do
   before(:each) do
-    @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com')
+    @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com', password: 'Abc123', password_confirmation: 'Abc123')
 
     visit movie_index_path(@user)
   end

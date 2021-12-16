@@ -5,8 +5,8 @@ require 'rails_helper'
 RSpec.describe "viewing party create" do
   describe 'the new viewing party', :vcr do
     before(:each) do
-      @sara = User.create!(name: 'Sara', email: 'fake@fake_email.com')
-      @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com')
+      @sara = User.create!(name: 'Sara', email: 'fake@fake_email.com', password: 'Abc123', password_confirmation: 'Abc123')
+      @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com', password: 'xzy6789', password_confirmation: 'xzy6789')
       @movie = MoviesFacade.movie_by_id(278)
     end
 

@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe "user show" do
   before :each do
-    @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com')
-    @user2 = User.create!(name: 'Bob Smith', email: 'bob@fake_email.com')
+    @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com', password: 'Abc123', password_confirmation: 'Abc123')
+    @user2 = User.create!(name: 'Bob Smith', email: 'bob@fake_email.com', password: 'mnbu23', password_confirmation: 'mnbu23')
     visit user_show_path(@user)
   end
 
