@@ -1,6 +1,6 @@
-<%= button_to "Discover Page", discover_show_path(@user), method: :get %><br>
+<%= button_to "Discover Page", discover_show_path, method: :get %><br>
 
-<%= button_to "Create Viewing Party for #{@movie.title}", new_viewing_party_path(@user, @movie.id), method: :get %>
+<%= button_to "Create Viewing Party for #{@movie.title}", new_viewing_party_path(@movie.id), method: :get %>
 
 <h1> <%= @movie.title %></h1>
 <img src=<%= @movie.image_url %>>

@@ -1,0 +1,5 @@
+<h4>All Users</h4>
+<% @users.each do |user| %>
+  <%= link_to user.name, admin_path(user.id) %><br>
+  <%= user.email %><hr>
+<% end %>

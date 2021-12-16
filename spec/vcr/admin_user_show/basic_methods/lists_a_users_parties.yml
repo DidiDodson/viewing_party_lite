@@ -25,7 +25,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 15 Dec 2021 18:48:46 GMT
+      - Thu, 16 Dec 2021 23:36:45 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -44,22 +44,20 @@ http_interactions:
       X-Memc-Age:
       - '0'
       X-Memc-Expires:
-      - '17745'
+      - '17035'
       Vary:
       - Accept-Encoding
       X-Cache:
       - Error from cloudfront
       Via:
-      - 1.1 9204cf44179493ed42c678800a26918b.cloudfront.net (CloudFront)
+      - 1.1 a7a72b1a5037a2bd41872d67061b2f5a.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - DEN50-C2
+      - DFW55-C3
       X-Amz-Cf-Id:
-      - MMcUwy0et2-sXW3AhbA8MHdjYrV06M9ZBpKljfwL_niVpVPpI-8dqQ==
-      Age:
-      - '813'
+      - 7XBp8W6hsUdfGwB88QQjZILxQNaJ_uQo3kICclR7zEC5GS4n70tivA==
     body:
       encoding: ASCII-8BIT
       string: '{"success":false,"status_code":34,"status_message":"The resource you
         requested could not be found."}'
-  recorded_at: Wed, 15 Dec 2021 19:02:19 GMT
+  recorded_at: Thu, 16 Dec 2021 23:36:45 GMT
 recorded_with: VCR 6.0.0

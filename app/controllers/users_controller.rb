@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      redirect_to "/users/#{user.id}"
+      session[:user_id] = user.id
+      redirect_to user_dashboard_path
     elsif params[:name].present? == false
       redirect_to register_path
       flash[:alert] = 'Please enter valid name'
@@ -25,10 +26,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @parties = @user.parties
-    @movies = @user.parties.map do |party|
-      MoviesFacade.movie_by_id(party.movie_id)
+    if session[:user_id] == nil
+      flash[:alert] = "Please login or create new user account."
+      redirect_to root_path
+    else
+      @user = User.find(session[:user_id])
+      @parties = @user.parties
+      @movies = @user.parties.map do |party|
+        MoviesFacade.movie_by_id(party.movie_id)
+      end
     end
   end
 

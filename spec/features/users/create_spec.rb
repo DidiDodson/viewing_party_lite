@@ -22,6 +22,7 @@ RSpec.describe "user create" do
       fill_in 'Password confirmation', with: 'Abc123'
       click_button 'Save'
 
+
       expect(page).to have_content("Tammy Tanaka's Dashboard")
       expect(page).to have_button("Discover Movies")
       expect(page).to have_content("Viewing Parties")

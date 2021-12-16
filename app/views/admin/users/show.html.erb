@@ -1,0 +1,19 @@
+<h2> Admin: <%= @user.name %>'s Dashboard</h2>
+
+<hr>
+<h3>Viewing Parties</h3>
+<% @user.parties.each do |party| %>
+  <% @movies.each do |movie| %>
+    <% if party.movie_id == movie.id  %>
+      <img src=<%= movie.image_url %>>
+    <% end %>
+  <% end %><br>
+  <h4><%= party.name %></h4>
+  Party Date: <%= party.date.strftime('%B %-d, %Y') %><br>
+  Party Time: <%= party.time.strftime('%I:%M %P') %><br>
+  Status: <% if party.user_id == @user.id %>
+    hosting
+  <% else %>
+    invited
+  <% end %><br><hr>
+<% end %>

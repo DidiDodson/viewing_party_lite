@@ -6,7 +6,12 @@ RSpec.describe 'Discover page' do
   before(:each) do
     @user = User.create!(name: 'Tammy Tanaka', email: 'tammy@fake_email.com', password: 'Abc123', password_confirmation: 'Abc123')
 
-    visit discover_show_path(@user)
+    visit user_login_path
+    fill_in :email, with: 'tammy@fake_email.com'
+    fill_in :password, with: 'Abc123'
+    click_button 'Login'
+
+    visit discover_show_path
   end
 
   it 'shows discover page' do
@@ -17,6 +22,6 @@ RSpec.describe 'Discover page' do
 
   it 'can go to top rated movies page', :vcr do
     click_button 'Find Top Rated Movies'
-    expect(current_path).to eq(movie_index_path(@user))
+    expect(current_path).to eq(movie_index_path)
   end
 end

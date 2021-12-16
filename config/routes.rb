@@ -3,14 +3,23 @@ Rails.application.routes.draw do
 
   get '/login',           to: 'sessions#new', as: "user_login"
   post '/login',          to: 'sessions#create', as: "login_user"
+  delete '/logout',       to: 'sessions#destroy', as: 'user_logout'
+  get '/logout',          to: 'sessions#destroy', as: 'logout_user'
   get '/register',        to: 'users#new'
   post '/register',       to: 'users#create'
-  get '/users/:user_id',  to: 'users#show', as: "user_show"
+  get '/dashboard',       to: 'users#show', as: "user_dashboard"
 
-  get '/users/:user_id/discover', to: 'discover#show', as: "discover_show"
-  get '/users/:user_id/movies', to: 'movies#index', as: "movie_index"
-  get '/users/:user_id/movies/:id', to: 'movies#show', as: "movie_show"
+  get '/discover',        to: 'discover#show', as: "discover_show"
+  get '/movies',          to: 'movies#index', as: "movie_index"
+  get '/movies/:id',      to: 'movies#show', as: "movie_show"
 
-  get '/users/:user_id/movies/:id/viewing_party/new', to: 'party#new', as: "new_viewing_party"
-  post '/users/:user_id/movies/:id/viewing_party/new', to: 'party#create'
+  get '/movies/:id/viewing_party/new',  to: 'party#new', as: "new_viewing_party"
+  post '/movies/:id/viewing_party/new', to: 'party#create'
+
+  namespace :admin do
+    get '/dashboard',             to: 'users#index'
+    get '/users/:user_id',        to: 'users#show'  
+    get '/login',                 to: 'sessions#new', as: "user_login"
+    post '/login',                to: 'sessions#create', as: "login_user"
+  end
 end

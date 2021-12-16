@@ -1,9 +1,9 @@
-<%= button_to "Discover Page", discover_show_path(@user), method: :get %>
+<%= button_to "Discover Page", discover_show_path, method: :get %>
 
 <h1>Create a Movie Party for <%= "#{@movie.title}" %></h1>
 
 <h3>Viewing Party Details</h3>
-<%= form_with url: new_viewing_party_path(@user, @movie.id), local: true, method: :post do |form| %>
+<%= form_with url: new_viewing_party_path(@movie.id), local: true, method: :post do |form| %>
   Movie Title: <%= @movie.title %><br>
   <%= form.hidden_field :img_url, value: @movie.image_url %>
   <%= form.hidden_field :movie_id, value: @movie.id %>
