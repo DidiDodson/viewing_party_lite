@@ -1,7 +1,11 @@
 <h1>Viewing Party Lite</h1>
 
 <% if current_user %>
-  <%= link_to "Logout", user_logout_path %>
+  <%= link_to "Logout", user_logout_path %><hr>
+  All Users:<br>
+  <% @users.each do |user| %>
+    <%= user.email %><br>
+  <% end %>
 <% else %>
   <%= link_to "Login", user_login_path %>
   <%= link_to "Admin Login", admin_user_login_path %><hr>
