@@ -2,7 +2,7 @@
 
 ## About this Project
 
-Viewing Part Lite is an application in which users can explore movie options and create a viewing party event for themselves and other users of the application. It incorporates basic HTML views in the backend repo in addition to the base code.
+Viewing Part Lite is an application in which users can explore movie options and create a viewing party event for themselves and other users of the application. It incorporates basic HTML views in the backend repo in addition to the base code. This project was developed by Didi Dodson and Christina Delpone in 2021.
 
 This project consumes the [Movie DB API](https://www.themoviedb.org/documentation/api?language=en-US) to provide real-time data for each movie. This data includes reviews and rankings, as well as a list of the top 25 movies. Users can also search the database to find a movie and create a viewing party. The movie data is consumed via a facade and a service to abstract it out of the controller.
 
@@ -28,14 +28,14 @@ This project is tested using RSpec, Capybara, VCR, Webmock, SimpleCov, and Shoul
 
 ## Sample Views
 **_Login Page_**\
-![Login Page](app/assets/images/homepage.png)
+![Login Page](app/assets/images/homepage.png)\
 **_New User Creation_**\
-![New User Page](app/assets/images/new_user_registration.png)
+![New User Page](app/assets/images/new_user_registration.png)\
 **_Discover Movies Page_**\
-![Discover page](app/assets/images/discover.png)
+![Discover page](app/assets/images/discover.png)\
 **_Top 25 Movies_**\
-![Top 25 Movies](app/assets/images/top_movies.png)
+![Top 25 Movies](app/assets/images/top_movies.png)\
 **_Movie Search Results_**\
-![Movie Search Results](app/assets/images/search_results.png)
+![Movie Search Results](app/assets/images/search_results.png)\
 **_Movie Show Page_**\
 ![Movie Show](app/assets/images/movie_show.png)
