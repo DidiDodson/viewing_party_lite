@@ -2,24 +2,34 @@
 
 class PartyController < BaseController
   def new
-    @user = User.find(session[:user_id])
-    @movie = MoviesFacade.movie_by_id(params[:id])
+    if session[:user_id]
+      @party = Party.new
+      @users = User.all
+      @movie = MoviesFacade.movie_by_id(params[:id])
+      @party.movie_id = @movie.id
+    else
+      flash[:alert] = "Error: You must be logged in or registered to create a movie party"
+      redirect_to "/movie/#{params[:movie_id]}"
+    end
   end
 
   def create
-    user = User.find(session[:user_id])
-    movie = MoviesFacade.movie_by_id(params[:movie_id])
-    party = Party.new(party_params)
-    party.user_id = session[:user_id]
-    party.movie_id = movie.id
-    params[:user_ids] << session[:user_id].to_s
-    ids = params[:user_ids]
-    ids.shift
+     @host = User.find(session[:user_id])
+     party = Party.new(party_params)
+     user = User.find(params[:user_id])
+     user_ids = params[:users]
+     @movie = MoviesFacade.movie_by_id(params[:id])
+     party.movie_id = @movie.id
+
+     # movie = MoviesFacade.movie_by_id(party.movie_id)
 
     if party.save
-      ids.map do |user_id|
-        PartyInvitee.create(user_id: user_id, party_id: party.id)
+      party.users << user
+      user_ids.each do |id|
+        invitee = User.find(id.to_i)
+        party.users << invitee
       end
+
       redirect_to user_dashboard_path
     else
       flash[:alert] = 'Invalid input. Please try again.'
